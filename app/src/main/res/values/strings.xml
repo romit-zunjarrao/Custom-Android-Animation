@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="example">Example:</string>
+    <string name="create_your_own">Create Your own</string>
+    <string name="radius">Radius:</string>
+    <string name="speed">Speed:</string>
+    <string name="colorText">color</string>
+    <string name="add">ADD</string>
 </resources>

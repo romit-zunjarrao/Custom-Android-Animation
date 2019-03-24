@@ -1,19 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+   <TextView
+       android:id="@+id/CustomViewExampleTextView"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="@string/example"
+       android:gravity="center"
+       android:textSize="20sp" />
+
    <com.example.myapplication.CircleAnimationView
+       android:id="@+id/CircleAnimationView"
        android:layout_height="80dp"
        android:layout_width="match_parent"
        app:circleRadius="10dp"
        app:circleSpeed="10dp"
        app:circleColor="@android:color/holo_blue_dark"
        android:padding="20dp"
+       android:layout_below="@+id/CustomViewExampleTextView"
        />
 
+   <TextView
+       android:id="@+id/create_own_view_textview"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="@string/create_your_own"
+       android:textSize="20sp"
+       android:layout_below="@id/CircleAnimationView"
+       android:gravity="center"/>
 
-</LinearLayout>
+   <RelativeLayout
+       android:id="@+id/CircleCreationInterface"
+       android:layout_width="match_parent"
+       android:layout_height="90dp"
+       android:layout_alignParentBottom="true"
+       android:padding="5dp">
+      <TextView
+          android:id="@+id/radiusTextView"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/radius"
+          android:textSize="20sp"/>
+
+       <EditText
+           android:id="@+id/radiusEditText"
+           android:layout_width="70dp"
+           android:layout_height="wrap_content"
+           android:layout_toEndOf="@id/radiusTextView"
+           android:layout_alignTop="@id/radiusTextView"
+           android:layout_alignBottom="@id/radiusTextView"
+           android:inputType="number"
+           android:textSize="20sp"
+           />
+       <TextView
+           android:id="@+id/speedTextView"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/speed"
+           android:layout_toStartOf="@id/speedEditText"
+           android:textSize="20sp"
+           />
+
+       <EditText
+           android:id="@+id/speedEditText"
+           android:layout_width="70dp"
+           android:layout_height="wrap_content"
+           android:layout_alignParentEnd="true"
+           android:layout_alignTop="@id/radiusTextView"
+           android:layout_alignBottom="@id/radiusTextView"
+           android:inputType="number"
+           android:textSize="20sp"
+           />
+
+       <TextView
+           android:id="@+id/colorTextView"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/colorText"
+           android:textSize="20sp"
+           android:layout_below="@id/radiusTextView"
+           android:layout_marginTop="10dp"
+           />
+
+       <View
+           android:id="@+id/orange"
+           android:layout_width="30dp"
+           android:layout_height="30dp"
+           android:layout_toEndOf="@id/colorTextView"
+           android:layout_below="@id/radiusTextView"
+           android:background="@android:color/holo_orange_light"
+           android:layout_marginStart="10dp"
+           android:layout_alignTop="@id/colorTextView"/>
+
+
+
+       <View
+           android:id="@+id/purple"
+           android:layout_width="30dp"
+           android:layout_height="30dp"
+           android:layout_toEndOf="@id/orange"
+           android:layout_below="@id/radiusTextView"
+           android:background="@android:color/holo_purple"
+           android:layout_alignTop="@id/colorTextView"
+           android:layout_marginStart="10dp"/>
+
+       <View
+           android:id="@+id/black"
+           android:layout_width="30dp"
+           android:layout_height="30dp"
+           android:layout_toEndOf="@id/purple"
+           android:layout_below="@id/radiusTextView"
+           android:background="@android:color/background_dark"
+           android:layout_alignTop="@id/colorTextView"
+           android:layout_marginStart="10dp"/>
+
+       <View
+           android:id="@+id/grey"
+           android:layout_width="30dp"
+           android:layout_height="30dp"
+           android:layout_toEndOf="@id/black"
+           android:layout_below="@id/radiusTextView"
+           android:background="@android:color/darker_gray"
+           android:layout_alignTop="@id/colorTextView"
+           android:layout_marginStart="10dp"/>
+       <View
+           android:id="@+id/blue"
+           android:layout_width="30dp"
+           android:layout_height="30dp"
+           android:layout_toEndOf="@id/grey"
+           android:layout_below="@id/radiusTextView"
+           android:background="@android:color/holo_blue_bright"
+           android:layout_alignTop="@id/colorTextView"
+           android:layout_marginStart="10dp"/>
+
+       <Button
+           android:id="@+id/add"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentEnd="true"
+           android:layout_below="@id/speedEditText"
+           android:text="@string/add"
+           android:textSize="20sp"/>
+
+   </RelativeLayout>
+
+   <ListView
+       android:id="@+id/listView"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_below="@id/create_own_view_textview"
+       android:layout_above="@id/CircleCreationInterface"
+        />
+
+
+</RelativeLayout>
