@@ -9,12 +9,14 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 
+import java.util.logging.Handler;
+
 public class CircleAnimationView extends View {
 
     Paint mPaint;
     Circle circle;
     float x;
-    boolean directionLeft;
+    boolean touchWidthMax, touchWidthMin;
     public CircleAnimationView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
@@ -33,27 +35,43 @@ public class CircleAnimationView extends View {
         mPaint = new Paint();
         mPaint.setColor(circle.circleColor);
         x = circle.circleRadius;
-        directionLeft = true;
+        touchWidthMax = false;
+        touchWidthMin = true;
     }
 
     @Override
     protected void onDraw(Canvas canvas)
     {
         //canvas.drawCircle(getWidth()/2,getHeight()/2,circle.circleRadius,mPaint);
+
         drawCircle(canvas);
     }
 
     public void drawCircle(Canvas canvas)
     {
-        canvas.drawCircle( x,getHeight()/2,circle.circleRadius,mPaint);
-        if(x+circle.circleRadius<=getWidth())
+        //canvas.drawCircle( x ,getHeight()/2,circle.circleRadius,mPaint);
+
+        if(touchWidthMax == false)
         {
-            directionLeft = true;
+            invalidate();
+            canvas.drawCircle( x = x + circle.circleSpeed,getHeight()/2,circle.circleRadius,mPaint);
+            if(x+circle.circleSpeed >= getWidth()-dpToPx(10))
+            {
+                touchWidthMin = false;
+                touchWidthMax = true;
+            }
         }
-        else
+        else if(touchWidthMin == false)
         {
-            directionLeft = false;
+            invalidate();
+            canvas.drawCircle( x=x - circle.circleSpeed,getHeight()/2,circle.circleRadius,mPaint);
+            if(x-circle.circleSpeed <= circle.circleRadius)
+            {
+                touchWidthMin = true;
+                touchWidthMax = false;
+            }
         }
+
 
     }
 

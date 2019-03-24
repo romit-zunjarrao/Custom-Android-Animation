@@ -12,6 +12,7 @@
        app:circleRadius="10dp"
        app:circleSpeed="10dp"
        app:circleColor="@android:color/holo_blue_dark"
+       android:padding="20dp"
        />
 
 
