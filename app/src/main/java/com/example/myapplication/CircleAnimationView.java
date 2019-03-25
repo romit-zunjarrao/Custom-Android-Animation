@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 
@@ -26,6 +27,8 @@ public class CircleAnimationView extends View {
 
         circle = new Circle(typedArray.getDimension(R.styleable.circle_circleRadius,dpToPx(5)),typedArray.getDimension(R.styleable.circle_circleSpeed,dpToPx(10)),
                 typedArray.getColor(R.styleable.circle_circleColor,Color.GREEN));
+        Log.d("constructor","in constructor");
+        Log.d("cirlce value in constructor",""+circle);
         typedArray.recycle();
         initPaint();
     }
@@ -77,6 +80,13 @@ public class CircleAnimationView extends View {
 
     private int dpToPx(int dpValue) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dpValue, getContext().getResources().getDisplayMetrics());
+    }
+
+    public void setCircle(float radius, float speed, int color )
+    {
+        circle = new Circle(radius,speed,color);
+        Log.d("method","in method");
+        Log.d("method",""+circle);
     }
 }
 
