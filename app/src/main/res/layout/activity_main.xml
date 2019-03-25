@@ -145,7 +145,8 @@
            android:layout_alignParentEnd="true"
            android:layout_below="@id/speedEditText"
            android:text="@string/add"
-           android:textSize="20sp"/>
+           android:textSize="20sp"
+           android:onClick="addNewCircle"/>
 
    </RelativeLayout>
 

@@ -57,6 +57,7 @@ public class CircleAnimationView extends View {
         if(touchWidthMax == false)
         {
             invalidate();
+            mPaint.setColor(circle.circleColor);
             canvas.drawCircle( x = x + circle.circleSpeed,getHeight()/2,circle.circleRadius,mPaint);
             if(x+circle.circleSpeed >= getWidth()-dpToPx(10))
             {
