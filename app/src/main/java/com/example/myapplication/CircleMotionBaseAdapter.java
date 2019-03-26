@@ -37,21 +37,28 @@ public class CircleMotionBaseAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
+        ViewHolder holder;
         if(convertView == null)
         {
+            holder = new ViewHolder();
             convertView = LayoutInflater.from(context).inflate(R.layout.list_row,parent,false);
+            holder.circleAnimationView = convertView.findViewById(R.id.CircleAnimationView);
+            convertView.setTag(holder);
+        }
+        else
+        {
+            holder = (ViewHolder) convertView.getTag();
         }
 
-        CircleAnimationView cav = convertView.findViewById(R.id.CircleAnimationView);
+        CircleAnimationView cav = holder.circleAnimationView ;//convertView.findViewById(R.id.CircleAnimationView);
         Circle c = (Circle)arrayList.get(position);
         cav.setCircle(c.circleRadius,c.circleSpeed,c.circleColor);
-       /* ListData data = (ListData) getItem(position);
-
-        ImageView img = (ImageView)convertView.findViewById(R.id.image);
-        TextView text = (TextView)convertView.findViewById(R.id.text);
-
-        img.setImageDrawable(data.imageResource);
-        text.setText(data.textDescription);*/
         return convertView;
+    }
+
+    class ViewHolder
+    {
+        CircleAnimationView circleAnimationView;
+
     }
 }

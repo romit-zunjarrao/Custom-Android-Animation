@@ -52,10 +52,10 @@
            android:layout_width="70dp"
            android:layout_height="wrap_content"
            android:layout_toEndOf="@id/radiusTextView"
-           android:layout_alignTop="@id/radiusTextView"
-           android:layout_alignBottom="@id/radiusTextView"
-           android:inputType="number"
-           android:textSize="20sp"
+            android:layout_alignTop="@id/radiusTextView"
+
+           android:inputType="numberDecimal"
+           android:textSize="12sp"
            />
        <TextView
            android:id="@+id/speedTextView"
@@ -63,7 +63,6 @@
            android:layout_height="wrap_content"
            android:text="@string/speed"
            android:layout_toStartOf="@id/speedEditText"
-           android:textSize="20sp"
            />
 
        <EditText
@@ -72,9 +71,8 @@
            android:layout_height="wrap_content"
            android:layout_alignParentEnd="true"
            android:layout_alignTop="@id/radiusTextView"
-           android:layout_alignBottom="@id/radiusTextView"
-           android:inputType="number"
-           android:textSize="20sp"
+           android:inputType="numberDecimal"
+           android:textSize="12sp"
            />
 
        <TextView
@@ -95,7 +93,8 @@
            android:layout_below="@id/radiusTextView"
            android:background="@android:color/holo_orange_light"
            android:layout_marginStart="10dp"
-           android:layout_alignTop="@id/colorTextView"/>
+           android:layout_alignTop="@id/colorTextView"
+           android:onClick="colorSelected"/>
 
 
 
@@ -107,7 +106,8 @@
            android:layout_below="@id/radiusTextView"
            android:background="@android:color/holo_purple"
            android:layout_alignTop="@id/colorTextView"
-           android:layout_marginStart="10dp"/>
+           android:layout_marginStart="10dp"
+           android:onClick="colorSelected"/>
 
        <View
            android:id="@+id/black"
@@ -117,7 +117,8 @@
            android:layout_below="@id/radiusTextView"
            android:background="@android:color/background_dark"
            android:layout_alignTop="@id/colorTextView"
-           android:layout_marginStart="10dp"/>
+           android:layout_marginStart="10dp"
+           android:onClick="colorSelected"/>
 
        <View
            android:id="@+id/grey"
@@ -127,7 +128,8 @@
            android:layout_below="@id/radiusTextView"
            android:background="@android:color/darker_gray"
            android:layout_alignTop="@id/colorTextView"
-           android:layout_marginStart="10dp"/>
+           android:layout_marginStart="10dp"
+           android:onClick="colorSelected"/>
        <View
            android:id="@+id/blue"
            android:layout_width="30dp"
@@ -136,7 +138,8 @@
            android:layout_below="@id/radiusTextView"
            android:background="@android:color/holo_blue_bright"
            android:layout_alignTop="@id/colorTextView"
-           android:layout_marginStart="10dp"/>
+           android:layout_marginStart="10dp"
+           android:onClick="colorSelected"/>
 
        <Button
            android:id="@+id/add"

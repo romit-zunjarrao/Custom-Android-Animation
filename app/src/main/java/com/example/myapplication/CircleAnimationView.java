@@ -20,15 +20,9 @@ public class CircleAnimationView extends View {
     boolean touchWidthMax, touchWidthMin;
     public CircleAnimationView(Context context, AttributeSet attrs) {
         super(context, attrs);
-
         TypedArray typedArray = context.obtainStyledAttributes(attrs,R.styleable.circle);
-
-
-
         circle = new Circle(typedArray.getDimension(R.styleable.circle_circleRadius,dpToPx(5)),typedArray.getDimension(R.styleable.circle_circleSpeed,dpToPx(10)),
                 typedArray.getColor(R.styleable.circle_circleColor,Color.GREEN));
-        Log.d("constructor","in constructor");
-        Log.d("cirlce value in constructor",""+circle);
         typedArray.recycle();
         initPaint();
     }
@@ -45,15 +39,11 @@ public class CircleAnimationView extends View {
     @Override
     protected void onDraw(Canvas canvas)
     {
-        //canvas.drawCircle(getWidth()/2,getHeight()/2,circle.circleRadius,mPaint);
-
         drawCircle(canvas);
     }
 
     public void drawCircle(Canvas canvas)
     {
-        //canvas.drawCircle( x ,getHeight()/2,circle.circleRadius,mPaint);
-
         if(touchWidthMax == false)
         {
             invalidate();
@@ -68,6 +58,7 @@ public class CircleAnimationView extends View {
         else if(touchWidthMin == false)
         {
             invalidate();
+            mPaint.setColor(circle.circleColor);
             canvas.drawCircle( x=x - circle.circleSpeed,getHeight()/2,circle.circleRadius,mPaint);
             if(x-circle.circleSpeed <= circle.circleRadius)
             {
@@ -86,8 +77,6 @@ public class CircleAnimationView extends View {
     public void setCircle(float radius, float speed, int color )
     {
         circle = new Circle(radius,speed,color);
-        Log.d("method","in method");
-        Log.d("method",""+circle);
     }
 }
 
